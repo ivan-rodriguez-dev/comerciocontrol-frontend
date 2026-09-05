@@ -42,8 +42,9 @@ export const almacenSesion = {
 
 /**
  * Construye el mensaje de error a partir de la respuesta del backend.
- * La API responde con `{ mensaje, errores }`; si falla el parseo se usa el
- * texto por defecto del codigo HTTP.
+ * La API responde con `{ estado, error, mensaje, ruta, detalles }`, donde
+ * `detalles` trae el motivo campo por campo cuando falla la validacion.
+ * Si falla el parseo se usa el texto por defecto del codigo HTTP.
  */
 async function construirError(respuesta) {
   let cuerpo = null;
@@ -60,7 +61,7 @@ async function construirError(respuesta) {
       ? 'La sesion expiro o las credenciales no son validas'
       : `La peticion fallo con codigo ${respuesta.status}`);
 
-  return new ErrorApi(mensaje, respuesta.status, cuerpo?.errores);
+  return new ErrorApi(mensaje, respuesta.status, cuerpo?.detalles);
 }
 
 /**
