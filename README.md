@@ -59,6 +59,28 @@ Para generar la versión de producción:
 npm run build
 ```
 
+### Variables de entorno
+
+El archivo `.env` es local y no se versiona. Cree una copia de `.env.example` con el nombre `.env` y ajuste `VITE_API_URL` si la API no se ejecuta en `http://localhost:8080`. No guarde tokens JWT, contraseñas ni datos sensibles en variables expuestas al navegador.
+
+En Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+npm install
+npm run dev
+```
+
+En Linux o macOS:
+
+```bash
+cp .env.example .env
+npm install
+npm run dev
+```
+
+La documentación de los endpoints que consume esta interfaz está disponible en la API mediante Swagger UI: `http://localhost:8080/swagger-ui.html`, y su contrato OpenAPI JSON en `http://localhost:8080/v3/api-docs`.
+
 ### Usuarios de prueba
 
 | Usuario | Contraseña | Rol |
