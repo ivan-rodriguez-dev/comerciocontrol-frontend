@@ -8,6 +8,9 @@
  */
 
 const URL_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8080';
+
+/** URL de la API a la que se conecta esta compilacion (se muestra en el login). */
+export const URL_API = URL_BASE;
 const CLAVE_TOKEN = 'comerciocontrol.token';
 const CLAVE_USUARIO = 'comerciocontrol.usuario';
 

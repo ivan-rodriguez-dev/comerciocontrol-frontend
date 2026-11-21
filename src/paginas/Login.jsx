@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { URL_API } from '../api/clienteHttp';
 import Alerta from '../componentes/Alerta';
 import Boton from '../componentes/Boton';
 import CampoTexto from '../componentes/CampoTexto';
@@ -53,7 +54,7 @@ export default function Login() {
           nombre="usuario"
           valor={credenciales.usuario}
           onChange={cambiarCampo}
-          marcador="ivan.admin"
+          marcador="nombre.usuario"
           requerido
           autoFocus
         />
@@ -73,7 +74,7 @@ export default function Login() {
         </Boton>
 
         <p className="login__ayuda">
-          La API debe estar en ejecucion en <code>http://localhost:8080</code>
+          Conectado a la API en <code>{URL_API}</code>
         </p>
       </form>
     </div>
